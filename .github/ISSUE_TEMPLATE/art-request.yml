@@ -1,0 +1,133 @@
+name: Art asset request
+description: A pixel-art asset to draw, with candidates to choose from
+title: "Art: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the asset, then pick its size, palette and frames. Each choice defaults to the
+        common case, so a simple static sprite only needs the first three fields.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What it is and what it's for
+      description: What it shows, where it appears, the camera view, and what it must read as at 1x.
+      placeholder: >-
+        A collectible pickup: a small tin of sardines on its side, lid peeled back. Seen on a dark
+        seabed road from three-quarter top-down; must read as "collect me" at a glance.
+    validations:
+      required: true
+
+  - type: input
+    id: pack
+    attributes:
+      label: Pack
+      value: sandbox
+    validations:
+      required: true
+
+  - type: input
+    id: ids
+    attributes:
+      label: Asset ids
+      description: Lowercase and hyphenated; separate several with commas.
+      placeholder: pickup-tin
+    validations:
+      required: true
+
+  - type: dropdown
+    id: size
+    attributes:
+      label: Size
+      options:
+        - 16x16
+        - 32x32
+        - 48x48
+        - 64x64
+        - Other (say in Notes)
+      default: 0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: palette
+    attributes:
+      label: Palette
+      description: From [Lospec](https://lospec.com/palette-list). AAP-64 is the house palette.
+      options:
+        - AAP-64
+        - Resurrect 64
+        - Apollo
+        - Sweetie 16
+        - Ink Crimson
+        - Other (say in Notes)
+      default: 0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frames
+    attributes:
+      label: Frames
+      options:
+        - Single static frame
+        - 2-frame loop
+        - 4-frame loop
+        - 8-frame loop
+        - Other (say in Notes)
+      default: 0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: background
+    attributes:
+      label: Background
+      options:
+        - Transparent
+        - Opaque (say the colour in Notes)
+      default: 0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: outline
+    attributes:
+      label: Outline
+      options:
+        - 1px dark outline
+        - No outline
+        - Selective outline
+      default: 0
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Games, styles or colour notes to aim for.
+      placeholder: >-
+        Pickups in classic 16-bit racers: chunky, high-contrast, one strong highlight. A silver tin
+        with a warm label so it stands out from the cool seabed.
+
+  - type: dropdown
+    id: candidates
+    attributes:
+      label: How many candidates
+      options:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+        - "5"
+      default: 2
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything the choices above don't cover.
