@@ -1,0 +1,10 @@
+# Throwaway: a slow required check for testing auto-merge through a merge conflict. Lives only on automerge-test.
+name: automerge-test-check
+on:
+  pull_request:
+    branches: [automerge-test]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 90
