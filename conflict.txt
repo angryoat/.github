@@ -1,1 +1,2 @@
+line from a
 line from b
